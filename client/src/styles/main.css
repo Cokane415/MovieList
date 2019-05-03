@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-  font-family: var(--mainFont);
+  font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -42,6 +42,8 @@ p {
 
 table, th, td {
   border: 1px solid black;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
