@@ -12,7 +12,7 @@ class App extends React.Component {
       movies: this.props.movies
     };
   }
-
+  
   render() {
     return (
       <div className="container">
