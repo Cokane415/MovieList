@@ -11,11 +11,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    var movies = this.props.movies.map(movie => {
+      movie['watched'] = false;
+      return movie;
+    })
+
     this.state = {
-      movies: this.props.movies,
-      displayedMovies: this.props.movies,
+      movies: movies,
+      displayedMovies: movies,
       watched: [],
-      toWatch: this.props.movies
+      toWatch: movies,
+      displayList: 'toWatch'
     };
 
     this.handleAddSubmitClick = this.handleAddSubmitClick.bind(this);
@@ -36,6 +42,7 @@ class App extends React.Component {
 
   //a function that filters the movie data based on search value
   filterSearch(val) {
+    //checks which displayList we are on 
     var lowerVal = val.toLowerCase();
     var movies = this.state.movies.slice();
     var filteredArray = movies.filter(movie => movie.title.toLowerCase().includes(lowerVal));
@@ -51,9 +58,13 @@ class App extends React.Component {
     var newMovie = {title: value, watched: false};
     var movies = this.state.movies.slice();
     movies.push(newMovie);
+    var toWatchMovies = this.state.toWatch.slice();
+    toWatchMovies.push(newMovie);
     this.setState({
       movies: movies,
-      displayedMovies: movies
+      toWatch: toWatchMovies,
+      displayedMovies: toWatchMovies,
+      displayList: 'toWatch'
     })
   }
 
@@ -63,6 +74,7 @@ class App extends React.Component {
     console.log('clicked on To Watch Movies');
     var watch = this.state.toWatch.slice();
     this.setState({
+      displayList: 'toWatch',
       displayedMovies: watch
     })
   }
@@ -73,6 +85,7 @@ class App extends React.Component {
     console.log('clicked on Watched Movies');
     var watched = this.state.watched.slice();
     this.setState({
+      displayList: 'watched',
       displayedMovies: watched
     })
   }
@@ -145,10 +158,10 @@ class App extends React.Component {
           <Search movies={this.state.movies} onSearchSubmit={this.handleSearchSubmitClick}/>
         </div>
         <div className="to-watch">
-        <ToWatch onToWatch={this.handleClickOnToWatch}/>
+        <ToWatch displayList={this.state.displayList} onToWatch={this.handleClickOnToWatch}/>
         </div>
         <div className="watched">
-        <Watched onWatched={this.handleClickOnWatched}/>
+        <Watched displayList={this.state.displayList} onWatched={this.handleClickOnWatched}/>
         </div>
         <div>
           {

@@ -10,7 +10,7 @@ var movies = [
     {title: 'Hackers', watched: false},
     {title: 'The Grey', watched: false},
     {title: 'Sunshine', watched: false},
-    {title: 'Ex Machina', watched: false}
+    {title: 'Ex Machina', watched: true}
 ];
 
 ReactDOM.render(<App movies={movies}/>, document.getElementById('root'));
