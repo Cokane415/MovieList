@@ -11,7 +11,9 @@
   --mainFont: Helvetica, sans-serif;
   --secFont: Source Sans Pro;
 }
+h1 {
 
+}
 html {
   box-sizing: border-box;
 }
@@ -26,7 +28,7 @@ body {
   text-align: center;
 }
 
-h1 {
+h2 {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -39,9 +41,36 @@ p {
   padding: 1rem;
   margin-bottom: 0;
 }
+#add-movie {
+  font-family: 'Roboto', sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#movie-search {
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 25px;
+}
 
-table, th, td {
-  border: 1px solid black;
+button.add-button {
+  color: white;
+  background: limegreen;
+}
+
+.movie-table, .movie-list{
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  width: 300px;
+  justify-content: center;
+  border: 1px solid grey;
+  border-radius: 4px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.movie-data {
+  height:50px;
+  width: 300px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }

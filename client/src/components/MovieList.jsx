@@ -6,7 +6,8 @@ var MovieList = (props) => (
     <tbody>
     {
       props.movies.map((movie) => {
-        return <MovieListEntry key={movie.title} movie={movie}/>
+        return <MovieListEntry key={movie.title} movie={movie} 
+        handleClickToConvert={props.handleClickToConvert}/>
       })
     }
     </tbody>

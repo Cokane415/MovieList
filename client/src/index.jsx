@@ -6,11 +6,11 @@ import App from './components/App';
 import './styles/main.css';
 
 var movies = [
-    {title: 'Mean Girls'},
-    {title: 'Hackers'},
-    {title: 'The Grey'},
-    {title: 'Sunshine'},
-    {title: 'Ex Machina'}
+    {title: 'Mean Girls', watched: false},
+    {title: 'Hackers', watched: false},
+    {title: 'The Grey', watched: false},
+    {title: 'Sunshine', watched: false},
+    {title: 'Ex Machina', watched: false}
 ];
 
 ReactDOM.render(<App movies={movies}/>, document.getElementById('root'));
