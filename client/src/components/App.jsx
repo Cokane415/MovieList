@@ -42,9 +42,9 @@ class App extends React.Component {
 
   //a function that filters the movie data based on search value
   filterSearch(val) {
-    //checks which displayList we are on 
+    //checks which displayList we are on
+    var movies = this.state.displayList === 'toWatch' ? this.state.toWatch.slice() : this.state.watched.slice()
     var lowerVal = val.toLowerCase();
-    var movies = this.state.movies.slice();
     var filteredArray = movies.filter(movie => movie.title.toLowerCase().includes(lowerVal));
     this.setState({
       displayedMovies: filteredArray
@@ -145,6 +145,10 @@ class App extends React.Component {
     }
   }
 
+  //run through displayed movies
+  //filter based on the search filter value 
+  //new filtered
+  
   render() {
     return (
       <div className="container">
