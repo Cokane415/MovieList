@@ -14,8 +14,8 @@ class App extends React.Component {
     this.state = {
       movies: this.props.movies,
       displayedMovies: this.props.movies,
-      watched: [{title: 'Avengers', watched: true}],
-      toWatch: [{title: 'Alien', watched: false}]
+      watched: [],
+      toWatch: this.props.movies
     };
 
     this.handleAddSubmitClick = this.handleAddSubmitClick.bind(this);
@@ -48,10 +48,11 @@ class App extends React.Component {
   handleAddSubmitClick(event, value) {
     event.preventDefault();
     console.log('im in submit with value:', value);
-    var newMovie = {title: value};
+    var newMovie = {title: value, watched: false};
     var movies = this.state.movies.slice();
     movies.push(newMovie);
     this.setState({
+      movies: movies,
       displayedMovies: movies
     })
   }
@@ -82,43 +83,41 @@ class App extends React.Component {
     var newWatched = this.state.watched.slice();
     //add the movie to the array
     newWatched.push(movie);
-    //reassign the Watched array in state
-    this.setState({
-      watched: newWatched
-    })
     //remove the movie from the ToWatch array in state
     var newToWatch = this.state.toWatch.slice();
-    for(var i = 0; i <= newToWatch; i++) {
+    for(var i = 0; i < newToWatch.length; i++) {
       if (newToWatch[i].title === movie.title) {
         newToWatch.splice(i, 1);
       }
     }
-    //reassign the ToWatch array in state
+
+    //reassign the ToWatch array in state and Watched array in state
     this.setState({
-      toWatch: newToWatch
+      toWatch: newToWatch,
+      watched: newWatched,
+      displayedMovies: newToWatch
     })
   };
 
   //a function that adds a movie to the toWatch array and removes the same movie from the watched array
   convertMovieFromWatched(movie) {
     movie.watched = false;
-    var newToWatched = this.state.toWatch.slice();
+    var newToWatch = this.state.toWatch.slice();
     //add the movie to the array
-    newToWatched.push(movie);
+    newToWatch.push(movie);
     //reassign the toWatch array in state
-    this.setState({
-      toWatch: newToWatched
-    })
     //remove the movie from the watched array in state
     var newWatched = this.state.watched.slice();
-    for(var i = 0; i <= newWatched; i++) {
+    for(var i = 0; i < newWatched.length; i++) {
       if (newWatched[i].title === movie.title) {
         newWatched.splice(i, 1);
       }
     }
     //reassign the ToWatch array in state
     this.setState({
-      watched: newWatched
+      watched: newWatched,
+      toWatch: newToWatch,
+      displayedMovies: newWatched
     })
   };
 

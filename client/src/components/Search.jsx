@@ -4,7 +4,7 @@ import React from 'react';
 class Search extends React.Component {
     constructor(props) {
         super(props);
-
+        //move state to the app-need to refresh search input field when you add a new movie
         this.state = {
             value: ''
         }
@@ -33,7 +33,6 @@ class Search extends React.Component {
                 />
                 <button className='search-button' onClick={this.onSearchSubmitDecorator.bind(this)}> Go! </button>
             </form>
-
         )
     }
 };

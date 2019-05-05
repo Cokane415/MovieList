@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ConvertToWatched extends React.Component {
+class WatchToggle extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,10 +15,10 @@ class ConvertToWatched extends React.Component {
     render() {
         return (
             <button className="watched" onClick={this.onClickConvertDecorator} >
-            Watched
+            {this.props.movie.watched === false ? 'Seen It' : 'Rewatch'}
         </button>
         )
     }
 };
 
-export default ConvertToWatched;
+export default WatchToggle;

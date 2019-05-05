@@ -21,6 +21,9 @@ class AddMovie extends React.Component {
     onAddDecorator(event) {
         console.log('hey');
         this.props.onAddSubmit(event, this.state.value);
+        this.setState({
+            value: ''
+        })
     }
 
     render () {
@@ -29,7 +32,7 @@ class AddMovie extends React.Component {
             Add a Movie: <input
             type='text'
             id='addtxt'
-            value={this.state.addValue}
+            value={this.state.value}
             onChange={this.handleChange}
             />
             <button className='add-button' onClick={this.onAddDecorator.bind(this)}> Add </button>
