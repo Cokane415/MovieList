@@ -6,11 +6,11 @@ import App from './components/App';
 import './styles/main.css';
 
 var movies = [
-    {title: 'Mean Girls', watched: false},
-    {title: 'Hackers', watched: false},
-    {title: 'The Grey', watched: false},
-    {title: 'Sunshine', watched: false},
-    {title: 'Ex Machina', watched: true}
+    {title: 'Mean Girls', runtime: '100s', metascore: 100, rating: '44/100'},
+    {title: 'Hackers', runtime: '100s', metascore: 100, rating: '44/100'},
+    {title: 'The Grey', runtime: '100s', metascore: 100, rating: '44/100'},
+    {title: 'Sunshine', runtime: '100s', metascore: 100, rating: '44/100'},
+    {title: 'Ex Machina', runtime: '100s', metascore: 100, rating: '44/100'}
 ];
 
 ReactDOM.render(<App movies={movies}/>, document.getElementById('root'));

@@ -13,10 +13,18 @@ class WatchToggle extends React.Component {
     };
 
     render() {
+        var style = {
+        'height': '20px',
+        'width': '20px',
+        'border': '1px solid black',
+        'borderRadius': '50%',
+        'backgroundColor':  this.props.movie.watched === true ? 'green' : 'white',
+        'color': this.props.movie.watched === true ? 'white' : 'black'
+        }
         return (
-            <button className="watched" onClick={this.onClickConvertDecorator} >
-            {this.props.movie.watched === false ? 'Seen It' : 'Rewatch'}
-        </button>
+            <div>
+            Watched: <button className="watched" onClick={this.onClickConvertDecorator} style={style}> </button> 
+            </div>
         )
     }
 };
